@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { MapContainer, TileLayer, useMapEvents, Marker, Popup, Circle } from 'react-leaflet';
 import L from 'leaflet';
 import axios from 'axios';
@@ -87,10 +87,11 @@ const GlobalTemperatureMap = ({ embedded = false }) => {
     };
 
     fetchInitialWeatherData();
-  }, []);
+  }, [fetchWeatherForLocation]);
 
   // Function to fetch weather data for a specific location using real OpenWeatherMap API
-  const fetchWeatherForLocation = async (lat, lng, cityName = null) => {
+  // Using useCallback to prevent dependency issues
+  const fetchWeatherForLocation = useCallback(async (lat, lng, cityName = null) => {
     try {
       // OpenWeatherMap API key - for demo purposes only
       // In production, this should be stored securely
@@ -176,7 +177,7 @@ const GlobalTemperatureMap = ({ embedded = false }) => {
       setError('Failed to fetch weather data. Please try again later.');
       return null;
     }
-  };
+  }, []);
   
   // Helper function to get base temperature based on latitude and season
   const getBaseTemperatureForLocation = (lat) => {

@@ -71,7 +71,6 @@ const CO2Emissions = () => {
   const earliestYear = Math.min(...filteredData.map(item => item.year));
   const earliestPPM = filteredData.find(item => item.year === earliestYear)?.ppm || 0;
   const totalIncrease = latestPPM - earliestPPM;
-  const percentIncrease = (totalIncrease / earliestPPM) * 100;
   const annualRate = totalIncrease / (latestYear - earliestYear);
   
   // Calculate decade averages

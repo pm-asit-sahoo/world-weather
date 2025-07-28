@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 // Mock data for development purposes
 // In a production environment, you would replace these with actual API calls
 
