@@ -94,7 +94,7 @@ const GlobalTemperatureMap = ({ embedded = false }) => {
     try {
       // OpenWeatherMap API key - for demo purposes only
       // In production, this should be stored securely
-      const apiKey = '4d8fb5b93d4af21d66a2948710284366';
+      const apiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
       
       try {
         // Fetch current weather data
@@ -360,9 +360,8 @@ const GlobalTemperatureMap = ({ embedded = false }) => {
   
   // Geocoding function with direct OpenWeatherMap API for better small town support
   const geocodeLocation = async (query) => {
-    // OpenWeatherMap API key - for demo purposes only
-    // In production, this should be stored securely
-    const apiKey = '4d8fb5b93d4af21d66a2948710284366';
+    // Use API key from environment variables
+    const apiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
     
     // Check if query matches any common location first (for faster response)
     const commonLocations = {};
