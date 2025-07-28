@@ -58,36 +58,14 @@ const GlobalTemperatureMap = ({ embedded = false }) => {
   const mapRef = useRef(null);
 
   // Major cities with their coordinates for initial display
-  const majorCities = [
+  const majorCities = React.useMemo(() => [
     { name: 'New York', lat: 40.7128, lng: -74.0060 },
     { name: 'London', lat: 51.5074, lng: -0.1278 },
     { name: 'Tokyo', lat: 35.6762, lng: 139.6503 },
     { name: 'Sydney', lat: -33.8688, lng: 151.2093 },
     { name: 'Cairo', lat: 30.0444, lng: 31.2357 },
     { name: 'Rio de Janeiro', lat: -22.9068, lng: -43.1729 }
-  ];
-
-  // Fetch weather data for initial cities on component mount
-  useEffect(() => {
-    const fetchInitialWeatherData = async () => {
-      setLoading(true);
-      try {
-        const promises = majorCities.map(city => 
-          fetchWeatherForLocation(city.lat, city.lng, city.name)
-        );
-        
-        const results = await Promise.all(promises);
-        setWeatherData(results.filter(data => data !== null));
-        setLoading(false);
-      } catch (err) {
-        console.error('Error fetching initial weather data:', err);
-        setError('Failed to load initial weather data');
-        setLoading(false);
-      }
-    };
-
-    fetchInitialWeatherData();
-  }, [fetchWeatherForLocation, majorCities]);
+  ], []);
 
   // Function to fetch weather data for a specific location using real OpenWeatherMap API
   // Using useCallback to prevent dependency issues
@@ -178,6 +156,28 @@ const GlobalTemperatureMap = ({ embedded = false }) => {
       return null;
     }
   }, []);
+
+  // Fetch weather data for initial cities on component mount
+  useEffect(() => {
+    const fetchInitialWeatherData = async () => {
+      setLoading(true);
+      try {
+        const promises = majorCities.map(city => 
+          fetchWeatherForLocation(city.lat, city.lng, city.name)
+        );
+        
+        const results = await Promise.all(promises);
+        setWeatherData(results.filter(data => data !== null));
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching initial weather data:', err);
+        setError('Failed to load initial weather data');
+        setLoading(false);
+      }
+    };
+
+    fetchInitialWeatherData();
+  }, [fetchWeatherForLocation, majorCities]);
   
   // Helper function to get base temperature based on latitude and season
   const getBaseTemperatureForLocation = (lat) => {
