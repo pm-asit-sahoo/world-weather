@@ -87,7 +87,7 @@ const GlobalTemperatureMap = ({ embedded = false }) => {
     };
 
     fetchInitialWeatherData();
-  }, [fetchWeatherForLocation]);
+  }, [fetchWeatherForLocation, majorCities]);
 
   // Function to fetch weather data for a specific location using real OpenWeatherMap API
   // Using useCallback to prevent dependency issues
