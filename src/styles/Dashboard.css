@@ -1,0 +1,303 @@
+.dashboard {
+  padding: 1rem 0;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.dashboard-description {
+  font-size: 1.125rem;
+  color: var(--text-light);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.dashboard-card {
+  background-color: var(--background-light);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.chart-container {
+  height: 180px;
+  margin-bottom: 1rem;
+  max-height: 180px;
+  overflow: hidden;
+}
+
+.map-container {
+  height: 250px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.preview-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.map-container {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.dashboard-map-container {
+  height: 350px;
+  width: 100%;
+  min-height: 300px;
+  display: block !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.dashboard-map-container .globe-map-container,
+.dashboard-extremes-container .extremes-map-container {
+  height: 100% !important;
+  border-radius: 8px;
+  overflow: hidden;
+  display: block !important;
+}
+
+/* Hide certain elements when embedded in dashboard */
+.dashboard-map-container .map-instructions,
+.dashboard-map-container .climate-change-section,
+.dashboard-extremes-container .map-instructions,
+.dashboard-extremes-container .extremes-info-section {
+  display: none;
+}
+
+.dashboard-extremes-container {
+  height: 250px;
+  width: 100%;
+  min-height: 250px;
+  position: relative;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.preview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 4px;
+}
+
+.preview-container:hover .preview-overlay {
+  opacity: 1;
+}
+
+.btn-large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-large:hover {
+  background-color: var(--primary-dark);
+}
+
+.card-description {
+  color: var(--text-light);
+  font-size: 0.9375rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.climate-facts {
+  margin-bottom: 3rem;
+}
+
+.climate-facts h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.fact-card {
+  background-color: var(--background-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.fact-card:hover {
+  transform: translateY(-5px);
+}
+
+.fact-card h3 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.fact-card p {
+  color: var(--text-light);
+  margin: 0;
+}
+
+.climate-action {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.climate-action h2 {
+  margin-bottom: 1rem;
+}
+
+.climate-action p {
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-action {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .facts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Fix for map display in dashboard */
+.dashboard-map-container .leaflet-container {
+  height: 100% !important;
+  width: 100% !important;
+  z-index: 1;
+  display: block !important;
+}
+
+.dashboard-extremes-container .leaflet-container {
+  height: 100% !important;
+  width: 100% !important;
+  z-index: 1;
+  display: block !important;
+}
+
+/* Fix for selected city details in dashboard */
+.dashboard-map-container .selected-city-details {
+  display: block !important;
+  position: relative;
+  z-index: 2;
+}

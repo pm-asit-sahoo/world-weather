@@ -1,0 +1,94 @@
+.chart-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.chart-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 0 0.5rem 0.5rem 0;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 0.25rem;
+}
+
+.legend-label {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.chart-tooltip {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  pointer-events: none;
+  position: absolute;
+  z-index: 10;
+}
+
+.chart-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.chart-control-btn {
+  background-color: var(--background-light);
+  border: 1px solid var(--text-light);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  margin: 0 0.25rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chart-control-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.chart-control-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .chart-title {
+    font-size: 1rem;
+  }
+  
+  .legend-item {
+    margin-bottom: 0.25rem;
+  }
+}
